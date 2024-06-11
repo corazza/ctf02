@@ -6,65 +6,8 @@ pub mod state_structs {
     use itf::de::{self, As};
     
     #[derive(Clone, Debug, Deserialize)]
-    pub struct Coin {
-        pub denom: String,
-        pub amount: BigInt
-    }
-
-    #[derive(Clone, Debug, Deserialize)]
-    pub struct DepositArgs {
-        pub deposit_amount: BigInt,
-        pub sender: String
-    }
-
-    #[derive(Clone, Debug, Deserialize)]
     pub struct InstantiateMsg {
         
-    }
-
-    #[derive(Clone, Debug, Deserialize)]
-    pub struct MsgInfo {
-        pub sender: String,
-        pub funds: Vec<Coin>
-    }
-
-    #[derive(Clone, Debug, Deserialize)]
-    pub struct StakeArgs {
-        pub stake_amount: BigInt,
-        pub sender: String
-    }
-
-    #[derive(Clone, Debug, Deserialize)]
-    pub struct State {
-        pub voting_power: HashMap[str, UserInfo],
-        pub block_time: BigInt
-    }
-
-    #[derive(Clone, Debug, Deserialize)]
-    pub struct StepInfo {
-        pub action_taken: String,
-        pub msg_info: MsgInfo,
-        pub msg_args: MsgArgs,
-        pub action_successful: bool,
-        pub action_error_description: String
-    }
-
-    #[derive(Clone, Debug, Deserialize)]
-    pub struct SystemState {
-        pub voting_power: HashMap[str, UserInfo],
-        pub block_time: BigInt
-    }
-
-    #[derive(Clone, Debug, Deserialize)]
-    pub struct TraceState {
-        pub step_info: StepInfo,
-        pub system_state: State
-    }
-
-    #[derive(Clone, Debug, Deserialize)]
-    pub struct UnstakeArgs {
-        pub unstake_amount: BigInt,
-        pub sender: String
     }
 
     #[derive(Clone, Debug, Deserialize)]
@@ -72,12 +15,6 @@ pub mod state_structs {
         pub total_tokens: BigInt,
         pub voting_power: BigInt,
         pub released_time: BigInt
-    }
-
-    #[derive(Clone, Debug, Deserialize)]
-    pub struct WithdrawArgs {
-        pub withdraw_amount: BigInt,
-        pub sender: String
     }
     
     #[derive(Clone, Debug, Deserialize)]
@@ -96,39 +33,6 @@ pub mod state_structs {
         
         #[serde(with = "As::<de::Option::<_>>")]
         pub amount: Option<BigInt>,
-        
-        #[serde(with = "As::<de::Option::<_>>")]
-        pub funds_denom: Option<String>,
-        
-        #[serde(with = "As::<de::Option::<_>>")]
-        pub funds_amount: Option<BigInt>,
-        
-        #[serde(with = "As::<de::Option::<_>>")]
-        pub funds_denom: Option<String>,
-        
-        #[serde(with = "As::<de::Option::<_>>")]
-        pub funds_amount: Option<BigInt>,
-        
-        #[serde(with = "As::<de::Option::<_>>")]
-        pub msg_info_sender: Option<String>,
-        
-        #[serde(with = "As::<de::Option::<_>>")]
-        pub step_info_action_taken: Option<String>,
-        
-        #[serde(with = "As::<de::Option::<_>>")]
-        pub step_info_msg_args: Option<MsgArgs>,
-        
-        #[serde(with = "As::<de::Option::<_>>")]
-        pub step_info_action_successful: Option<bool>,
-        
-        #[serde(with = "As::<de::Option::<_>>")]
-        pub step_info_action_error_description: Option<String>,
-        
-        #[serde(with = "As::<de::Option::<_>>")]
-        pub system_state_voting_power: Option<HashMap[str, UserInfo]>,
-        
-        #[serde(with = "As::<de::Option::<_>>")]
-        pub system_state_block_time: Option<BigInt>,
         
         #[serde(with = "As::<de::Option::<_>>")]
         pub message_amount: Option<BigInt>,

@@ -21,40 +21,8 @@ module oaksecurity_cosmwasm_ctf_02 {
   pure val MAX_AMOUNT = 200
 
 
-  type UserInfo = { total_tokens: BigInt, voting_power: BigInt, released_time: BigInt }
-  type State = { system_state: SystemState, step_info: StepInfo }
-  type SystemState = { voting_power: HashMap[str, UserInfo], block_time: BigInt }
-  type StepInfo = { action_taken: str, msg_info: MsgInfo, msg_args: MsgArgs, action_successful: bool, action_error_description: str }
-  type Coin = { denom: str, amount: BigInt }
-  type DepositArgs = { deposit_amount: BigInt, sender: str }
-  type WithdrawArgs = { withdraw_amount: BigInt, sender: str }
-  type StakeArgs = { stake_amount: BigInt, sender: str }
-  type UnstakeArgs = { unstake_amount: BigInt, sender: str }
-  type MsgInfo = { sender: str, funds: List[Coin] }
-  type Coin = { denom: str, amount: BigInt }
-  type MsgInfo = { sender: str, funds: List[Coin] }
-  type DepositArgs = { deposit_amount: BigInt, sender: str }
-  type WithdrawArgs = { withdraw_amount: BigInt, sender: str }
-  type StakeArgs = { stake_amount: BigInt, sender: str }
-  type UnstakeArgs = { unstake_amount: BigInt, sender: str }
-  type UserInfo = { total_tokens: BigInt, voting_power: BigInt, released_time: BigInt }
-  type State = { voting_power: HashMap[str, UserInfo], block_time: BigInt }
-  type StepInfo = { action_taken: str, msg_info: MsgInfo, msg_args: MsgArgs, action_successful: bool, action_error_description: str }
-  type TraceState = { step_info: StepInfo, system_state: State }
   type InstantiateMsg = {  }
   type UserInfo = { total_tokens: int, voting_power: int, released_time: int }
-  type MsgArgs =
-    | MsgArgs_None
-    | MsgArgs_DepositArgs(DepositArgs)
-    | MsgArgs_WithdrawArgs(WithdrawArgs)
-    | MsgArgs_StakeArgs(StakeArgs)
-    | MsgArgs_UnstakeArgs(UnstakeArgs)
-  type MsgArgs =
-    | MsgArgs_None
-    | MsgArgs_DepositArgs(DepositArgs)
-    | MsgArgs_WithdrawArgs(WithdrawArgs)
-    | MsgArgs_StakeArgs(StakeArgs)
-    | MsgArgs_UnstakeArgs(UnstakeArgs)
   type ExecuteMsg =
     | ExecuteMsg_Deposit
     | ExecuteMsg_Withdraw({ amount: int })
